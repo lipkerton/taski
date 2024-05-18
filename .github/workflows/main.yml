@@ -83,6 +83,10 @@ jobs:
       - name: Install dependencies
         run: |
           cd frontend/
+          npm ci
+      - name: Test frontend
+        run: |
+          cd frontend/
           npm run test
   build_frontend_and_push_to_docker_hub:
     name: Push frontend Docker image to DockerHub
@@ -118,7 +122,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Push to DockerHub
-        uses: docker/buind-push-action@v4
+        uses: docker/build-push-action@v4
         with:
           context: ./gateway/
           push: true
