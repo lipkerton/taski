@@ -83,7 +83,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd frontend/
-          npm run tes
+          npm run test
   build_frontend_and_push_to_docker_hub:
     name: Push frontend Docker image to DockerHub
     runs-on: ubuntu-latest
